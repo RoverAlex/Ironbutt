@@ -71,6 +71,7 @@
     <string name="start_new_login">Выйти</string>
     <string name="wrong_format">Не верный формат</string>
     <string name="connect_server">Подключение к серверу</string>
+    <string name="connect_tester">Войти \n для \n тестирование</string>
     <string name="btn_qr">Войти по qr коду</string>
     <string name="press_to_exit">Для выхода нажмите еще раз</string>
 
