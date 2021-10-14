@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/WORK/Git/Ironbytt/app/src/main/res/layout-land/fragment_login.xml" value="0.17372134038800705" />
+        <entry key="..\:/AndroidStudioProjects/WORK/Git/Ironbytt/app/src/main/res/layout-land/fragment_root.xml" value="0.15123456790123457" />
+        <entry key="..\:/AndroidStudioProjects/WORK/Git/Ironbytt/app/src/main/res/layout-land/fragment_start.xml" value="0.15123456790123457" />
+        <entry key="..\:/AndroidStudioProjects/WORK/Git/Ironbytt/app/src/main/res/layout/fragment_finish.xml" value="0.17864583333333334" />
+        <entry key="..\:/AndroidStudioProjects/WORK/Git/Ironbytt/app/src/main/res/layout/fragment_login.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidStudioProjects/WORK/Git/Ironbytt/app/src/main/res/layout/fragment_root.xml" value="0.17864583333333334" />
         <entry key="..\:/AndroidStudioProjects/WORK/Ironbytt/app/src/main/res/drawable-v24/ic_lock_open_black_24dp.xml" value="0.3828125" />
         <entry key="..\:/AndroidStudioProjects/WORK/Ironbytt/app/src/main/res/drawable-v24/ic_lock_outline_black_24dp.xml" value="0.22135416666666666" />
         <entry key="..\:/AndroidStudioProjects/WORK/Ironbytt/app/src/main/res/drawable/button.xml" value="0.22135416666666666" />

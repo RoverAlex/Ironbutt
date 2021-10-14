@@ -4,7 +4,7 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
-import com.denisovdw.ironbutt.utils.myLog
+import com.dw.ironButt.utils.myLog
 import com.dw.ironButt.R
 import com.dw.ironButt.ui.way.root.RootViewModel
 

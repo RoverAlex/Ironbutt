@@ -21,12 +21,6 @@ fun visibleView(view: View, flag: Boolean) {
     view.visibility = if (flag) View.VISIBLE  else View.GONE
 }
 
-@BindingAdapter("app:hideView")
-fun hideView(view: View, flag: Boolean) {
-    view.visibility = if (flag) View.GONE else View.VISIBLE
-}
-
-
 @BindingAdapter("app:visionRadioGroupIfSelect")
 fun visionRadioGroupIfSelect(view: View, flag: Boolean) {
     view.visibility = if (flag) View.GONE else View.VISIBLE
@@ -36,9 +30,9 @@ fun visionRadioGroupIfSelect(view: View, flag: Boolean) {
 @BindingAdapter("app:editTextError")
 fun editTextError(editText: EditText,resultText:String){
     if (resultText.isEmpty())
-        editText.error = "Поле не должно быть пустым!..";
+        editText.error = "Поле не должно быть пустым!.."
     else {
-        editText.error = null;
+        editText.error = null
     }
 }
 

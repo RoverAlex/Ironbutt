@@ -7,15 +7,13 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.denisovdw.ironbutt.database.room.PointLocation
-import com.denisovdw.ironbutt.utils.IronButtConstant
-import com.denisovdw.ironbutt.utils.IronUtils
-import com.denisovdw.ironbutt.utils.SharedPrefsManager
-import com.denisovdw.ironbutt.utils.myLog
+import com.dw.ironButt.database.room.PointLocation
+import com.dw.ironButt.utils.IronButtConstant
+import com.dw.ironButt.utils.IronUtils
+import com.dw.ironButt.utils.SharedPrefsManager
+import com.dw.ironButt.utils.myLog
 import com.dw.ironButt.App
 import com.dw.ironButt.R
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.Marker
 import kotlinx.coroutines.*
 
@@ -23,7 +21,7 @@ class RootViewModel(val app: Application) : AndroidViewModel(app) {
     val mJob = Job()
     val mUiScope = CoroutineScope(Dispatchers.Main + mJob)
     private val repositoryWay = App.wayRepository
-    val pref = SharedPrefsManager(app)
+    private val pref = SharedPrefsManager(app)
 
 
     var startMarkerMap: MutableMap<String, Marker> = HashMap()

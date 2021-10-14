@@ -1,9 +1,6 @@
-package com.denisovdw.ironbutt.database.api
+package com.dw.ironButt.database.api
 
 
-import com.denisovdw.ironbutt.AuthLoginJson
-import com.denisovdw.ironbutt.CheckTokenJson
-import com.denisovdw.ironbutt.ServerResponse
 import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.*

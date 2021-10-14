@@ -24,6 +24,7 @@
     <string name="finish">Finish</string>
     <string name="cancel">Отмена</string>
     <string name="send">Отправить</string>
+    <string name="repeat">Повторить</string>
     <string name="odometer_finish">Одометр финиш</string>
     <string name="country">Страна</string>
     <string name="address">Адрес</string>
@@ -69,7 +70,7 @@
 
     <string name="start_new_login">Выйти</string>
     <string name="wrong_format">Не верный формат</string>
-    <string name="betta_test">Тестирования</string>
+    <string name="connect_server">Подключение к серверу</string>
     <string name="btn_qr">Войти по qr коду</string>
     <string name="press_to_exit">Для выхода нажмите еще раз</string>
 
@@ -88,11 +89,17 @@
     <string name="logo">logo</string>
     <string name="load_track">Загрузка трэка</string>
     <string name="images_load_photo">images load photo</string>
-    <string name="success_send_server_user_list">Данные о пользователе отправлены</string>
-    <string name="success_send_server_point_list">Данные лист локации отправлены</string>
-    <string name="success_send_server_phote_list">Все фотографии отправлены</string>
+    <string name="success_send_server_user_list">Данные  пользователя отправлены</string>
+    <string name="success_send_server_point_list">Трэк отправлен</string>
+    <string name="success_send_server_photo_list">Все фотографии отправлены</string>
     <string name="swipe_to_finish">SWIPE TO FINISH</string>
-    <string name="info_aplication">Это программа предназначена для упрощения подачи заявки на номинации IRONBUTT</string>
+    <string name="info_application">Это программа предназначена для упрощения подачи заявки на номинации IRONBUTT</string>
+    <string name="internet_connection">Плохая связь с интернетом</string>
+    <string name="send_track">Отправка трэка</string>
+    <string name="send_photo">Отправка фотографий</string>
+    <string name="error_save">error save</string>
+    <string name="error_token">error token</string>
+    <string name="send_data_user">Отправка данныех  пользователя</string>
 
 
 </resources>

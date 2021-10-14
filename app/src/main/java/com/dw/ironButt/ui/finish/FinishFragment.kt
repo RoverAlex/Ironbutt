@@ -8,9 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.viewModels
-import com.denisovdw.ironbutt.utils.IronButtConstant.Companion.TAG_DIALOG_INFO
-import com.denisovdw.ironbutt.utils.IronUtils
-import com.denisovdw.ironbutt.utils.SharedPrefsManager.Companion.STATE_PRESENTER_FINISH
+import com.dw.ironButt.utils.IronButtConstant.Companion.TAG_DIALOG_INFO
+import com.dw.ironButt.utils.IronUtils
+import com.dw.ironButt.utils.SharedPrefsManager.Companion.STATE_PRESENTER_FINISH
 import com.dw.ironButt.App
 import com.dw.ironButt.R
 import com.dw.ironButt.database.file.FileHelper

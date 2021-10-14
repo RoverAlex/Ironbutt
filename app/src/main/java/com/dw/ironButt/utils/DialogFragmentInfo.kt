@@ -8,7 +8,6 @@ import com.dw.ironButt.R
 
 class DialogFragmentInfo (private val message: String) : DialogFragment() {
 
-
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return AlertDialog.Builder(activity)
             //.setTitle(R.string.dialog_title_delete)

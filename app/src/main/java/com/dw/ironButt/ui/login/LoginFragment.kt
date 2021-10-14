@@ -11,14 +11,14 @@ import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.denisovdw.ironbutt.database.room.UserList
-import com.denisovdw.ironbutt.utils.IronButtConstant.Companion.TAG_DIALOG_INFO
-import com.denisovdw.ironbutt.utils.IronUtils
-import com.denisovdw.ironbutt.utils.SharedPrefsManager.Companion.STATE_PRESENTER_FINISH
-import com.denisovdw.ironbutt.utils.SharedPrefsManager.Companion.STATE_PRESENTER_LOGIN
-import com.denisovdw.ironbutt.utils.SharedPrefsManager.Companion.STATE_PRESENTER_ROOT
-import com.denisovdw.ironbutt.utils.SharedPrefsManager.Companion.STATE_PRESENTER_SETTINGS
-import com.denisovdw.ironbutt.utils.SharedPrefsManager.Companion.STATE_PRESENTER_START
+import com.dw.ironButt.database.room.UserList
+import com.dw.ironButt.utils.IronButtConstant.Companion.TAG_DIALOG_INFO
+import com.dw.ironButt.utils.IronUtils
+import com.dw.ironButt.utils.SharedPrefsManager.Companion.STATE_PRESENTER_FINISH
+import com.dw.ironButt.utils.SharedPrefsManager.Companion.STATE_PRESENTER_LOGIN
+import com.dw.ironButt.utils.SharedPrefsManager.Companion.STATE_PRESENTER_ROOT
+import com.dw.ironButt.utils.SharedPrefsManager.Companion.STATE_PRESENTER_SETTINGS
+import com.dw.ironButt.utils.SharedPrefsManager.Companion.STATE_PRESENTER_START
 import com.dw.ironButt.App
 import com.dw.ironButt.R
 import com.dw.ironButt.databinding.FragmentLoginBinding
@@ -85,7 +85,13 @@ class LoginFragment : Fragment(), IOnBackPressed {
         qrFragment()
         infoQr()
         infoBetta()
+        checkToken()
 
+
+        return binding.root
+    }
+
+    private fun checkToken() {
         viewModel.chekToken { response ->
             if (response.token == "1") {
                 viewModel.infoToken.value = response.message
@@ -94,11 +100,13 @@ class LoginFragment : Fragment(), IOnBackPressed {
                         appState()
                     }
                 })
+            }else{
+                checkToken()
+                viewModel.infoToken.value = getString(R.string.internet_connection)
             }
 
 
         }
-        return binding.root
     }
 
     private fun appState() {
@@ -180,7 +188,7 @@ class LoginFragment : Fragment(), IOnBackPressed {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_info -> {
-                dialogInfo(getString(R.string.info_aplication))
+                dialogInfo(getString(R.string.info_application))
             }
             android.R.id.home -> activity?.finish()
         }

@@ -5,10 +5,10 @@ import android.location.Location
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.denisovdw.ironbutt.database.room.PointLocation
-import com.denisovdw.ironbutt.utils.IronButtConstant.Companion.TAG_AFTER_TIME
-import com.denisovdw.ironbutt.utils.IronUtils
-import com.denisovdw.ironbutt.utils.SharedPrefsManager
+import com.dw.ironButt.database.room.PointLocation
+import com.dw.ironButt.utils.IronButtConstant.Companion.TAG_AFTER_TIME
+import com.dw.ironButt.utils.IronUtils
+import com.dw.ironButt.utils.SharedPrefsManager
 import com.dw.ironButt.App
 import com.dw.ironButt.R
 import com.google.android.gms.maps.model.Marker
@@ -18,7 +18,7 @@ class StartViewModel(val app: Application) : AndroidViewModel(app) {
     val mJob = Job()
     val mUiScope = CoroutineScope(Dispatchers.Main + mJob)
     private val repositoryWay = App.wayRepository
-    val pref = SharedPrefsManager(app)
+    private val pref = SharedPrefsManager(app)
 
     var startMarkerMap: MutableMap<String, Marker> = HashMap()
 
@@ -26,7 +26,7 @@ class StartViewModel(val app: Application) : AndroidViewModel(app) {
     private var _hideProgressBar = MutableLiveData(false)
     val hideProgressBar: LiveData<Boolean> get() = _hideProgressBar
 
-    private val _totalTime = MutableLiveData<String>(app.getString(R.string.start_total_time))
+    private val _totalTime = MutableLiveData(app.getString(R.string.start_total_time))
     val totalTime: LiveData<String> get() = _totalTime
 
 
@@ -46,7 +46,7 @@ class StartViewModel(val app: Application) : AndroidViewModel(app) {
     var latestLocationData: Location? = null
     var newPointLocation = PointLocation()
 
-    var pointName = App.appResources.getString(R.string.start)
+    private var pointName = App.appResources.getString(R.string.start)
 
     var odometer = MutableLiveData("")
 

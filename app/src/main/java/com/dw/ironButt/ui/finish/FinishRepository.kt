@@ -2,18 +2,17 @@ package com.dw.ironButt.ui.finish
 
 import android.content.Context
 import androidx.lifecycle.LiveData
-import com.denisovdw.ironbutt.ServerResponse
-import com.denisovdw.ironbutt.database.api.ApiService
-import com.denisovdw.ironbutt.database.room.PointLocation
-import com.denisovdw.ironbutt.database.room.PointLocationDao
-import com.denisovdw.ironbutt.database.room.UserDatabaseDao
-import com.denisovdw.ironbutt.utils.IronButtConstant
-import com.denisovdw.ironbutt.utils.IronButtConstant.Companion.REQUEST_SERVER_ERROR
-import com.denisovdw.ironbutt.utils.IronUtils
-import com.denisovdw.ironbutt.utils.myLog
+import com.dw.ironButt.database.api.ServerResponse
+import com.dw.ironButt.database.api.ApiService
+import com.dw.ironButt.database.room.PointLocation
+import com.dw.ironButt.database.room.PointLocationDao
+import com.dw.ironButt.database.room.UserDatabaseDao
+import com.dw.ironButt.utils.IronButtConstant.Companion.REQUEST_SERVER_ERROR
+import com.dw.ironButt.utils.IronUtils
+import com.dw.ironButt.utils.myLog
 import com.dw.ironButt.App
-import com.dw.ironButt.R
 import com.dw.ironButt.database.file.FileHelper
+import com.dw.ironButt.utils.TokenConstant.Companion.TOKEN
 import com.google.gson.Gson
 import kotlinx.coroutines.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -38,7 +37,7 @@ class FinishRepository(
                 val userList = userDatabaseDao.getUserList()
                 val gsonUserList = gson.toJson(userList)
 
-                val call = apiService.requestUserList(IronButtConstant.TOKEN, gsonUserList)
+                val call = apiService.requestUserList(TOKEN, gsonUserList)
                 call.enqueue(object : retrofit2.Callback<ServerResponse> {
                     override fun onResponse(
                         call: retrofit2.Call<ServerResponse>,
@@ -69,7 +68,7 @@ class FinishRepository(
                 val userList = pointDatabaseDao.getResultAllPoints()
                 val gsonPointList = gson.toJson(userList)
 
-                val call = apiService.requestPointList(IronButtConstant.TOKEN, gsonPointList)
+                val call = apiService.requestPointList(TOKEN, gsonPointList)
                 call.enqueue(object : retrofit2.Callback<ServerResponse> {
                     override fun onResponse(
                         call: retrofit2.Call<ServerResponse>,
@@ -109,7 +108,7 @@ class FinishRepository(
                     parts.add(MultipartBody.Part.createFormData(nameFile, file.path, imageBody))
                 }
 
-                val call = apiService.uploadImages(IronButtConstant.TOKEN,unIRout!!,parts)
+                val call = apiService.uploadImages(TOKEN,unIRout!!,parts)
                 call.enqueue(object : retrofit2.Callback<ServerResponse> {
                     override fun onResponse(
                         call: retrofit2.Call<ServerResponse>,

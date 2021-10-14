@@ -1,4 +1,4 @@
-package com.denisovdw.ironbutt
+package com.dw.ironButt.database.api
 
 import com.google.gson.annotations.SerializedName
 
@@ -39,9 +39,6 @@ data class User(
 	@field:SerializedName("description")
 	val description: String = "",
 
-	@field:SerializedName("nicename")
-	val nicename: String = "",
-
 	@field:SerializedName("avatar")
 	val avatar: Any? = null,
 
@@ -51,8 +48,8 @@ data class User(
 	@field:SerializedName("lastname")
 	val lastname: String = "",
 
-	@field:SerializedName("displayname")
-	val displayname: String = "",
+	@field:SerializedName("displayName")
+	val displayName: String = "",
 
 	@field:SerializedName("nickname")
 	val nickname: String = "",

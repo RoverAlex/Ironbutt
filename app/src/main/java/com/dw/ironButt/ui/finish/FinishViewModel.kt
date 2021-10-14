@@ -4,15 +4,15 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.denisovdw.ironbutt.database.room.PointLocation
-import com.denisovdw.ironbutt.utils.IronButtConstant.Companion.REQUEST_SERVER_ERROR
-import com.denisovdw.ironbutt.utils.IronButtConstant.Companion.REQUEST_SERVER_ERROR_SEVE
-import com.denisovdw.ironbutt.utils.IronButtConstant.Companion.REQUEST_SERVER_ERROR_TOKEN
-import com.denisovdw.ironbutt.utils.IronButtConstant.Companion.REQUEST_SERVER_IS_SUCCESSFUL
-import com.denisovdw.ironbutt.utils.IronUtils
-import com.denisovdw.ironbutt.utils.SharedPrefsManager.Companion.STATE_SEND_PHOTO_LIST
-import com.denisovdw.ironbutt.utils.SharedPrefsManager.Companion.STATE_SEND_POINT_LIST
-import com.denisovdw.ironbutt.utils.SharedPrefsManager.Companion.STATE_SEND_USER_LIST
+import com.dw.ironButt.database.room.PointLocation
+import com.dw.ironButt.utils.IronButtConstant.Companion.REQUEST_SERVER_ERROR
+import com.dw.ironButt.utils.IronButtConstant.Companion.REQUEST_SERVER_ERROR_SAVE
+import com.dw.ironButt.utils.IronButtConstant.Companion.REQUEST_SERVER_ERROR_TOKEN
+import com.dw.ironButt.utils.IronButtConstant.Companion.REQUEST_SERVER_IS_SUCCESSFUL
+import com.dw.ironButt.utils.IronUtils
+import com.dw.ironButt.utils.SharedPrefsManager.Companion.STATE_SEND_PHOTO_LIST
+import com.dw.ironButt.utils.SharedPrefsManager.Companion.STATE_SEND_POINT_LIST
+import com.dw.ironButt.utils.SharedPrefsManager.Companion.STATE_SEND_USER_LIST
 import com.dw.ironButt.App
 import com.dw.ironButt.R
 import com.google.android.gms.maps.model.Marker
@@ -35,10 +35,11 @@ class FinishViewModel(val app: Application) : AndroidViewModel(app) {
     private val _totalTime = MutableLiveData<String>()
     val totalTime: LiveData<String> get() = _totalTime
 
-    private val _totalDistance = MutableLiveData<String>("0")
+    private val _totalDistance = MutableLiveData("0")
     val totalDistance: LiveData<String> get() = _totalDistance
 
-    val visibilityBtnSend = MutableLiveData(false)
+    val visibilityBtnSend = MutableLiveData(true)
+    val visibilityInfoView = MutableLiveData(false)
 
     var textInfoSendRequest = MutableLiveData("")
     var progressBarRequest = MutableLiveData(0)
@@ -56,7 +57,7 @@ class FinishViewModel(val app: Application) : AndroidViewModel(app) {
     }
 
     fun getListTrack(points: (LiveData<List<PointLocation>>) -> Unit) {
-        repository.getListTrack() { point ->
+        repository.getListTrack { point ->
             mUiScope.launch {
                 withContext(Dispatchers.Main) {
                     points(point)
@@ -68,24 +69,21 @@ class FinishViewModel(val app: Application) : AndroidViewModel(app) {
     fun newTotalDistance() {
         _totalDistance.value = IronUtils.formatLastOdometer()
     }
-
-    fun onClickCancel() {
-        visibilityBtnSend.value = false
-    }
-
     fun onClickSendToServer() = stateSend()
 
     private fun toServerUserList() {
+        textInfoSendRequest.value = app.getString(R.string.send_data_user)
+        progressBarRequest.value = 30
         repository.requestToServerUserList {
             when (it) {
                 REQUEST_SERVER_IS_SUCCESSFUL -> {
                     textInfoSendRequest.value =
                         app.getString(R.string.success_send_server_user_list)
-                    progressBarRequest.value = 100
+                    progressBarRequest.value = 50
                     pref.setStateSend(STATE_SEND_POINT_LIST)
                     stateSend()
                 }
-                REQUEST_SERVER_ERROR_SEVE -> {
+                REQUEST_SERVER_ERROR_SAVE -> {
                     serverErrorSave()
                 }
                 REQUEST_SERVER_ERROR_TOKEN -> {
@@ -100,17 +98,18 @@ class FinishViewModel(val app: Application) : AndroidViewModel(app) {
 
 
     private fun toServerPointList() {
+        textInfoSendRequest.value = app.getString(R.string.send_track)
+        progressBarRequest.value = 60
         repository.requestToServerPointList {
-            progressBarRequest.value = 0
             when (it) {
                 REQUEST_SERVER_IS_SUCCESSFUL -> {
                     textInfoSendRequest.value =
                         app.getString(R.string.success_send_server_point_list)
-                    progressBarRequest.value = 100
+                    progressBarRequest.value = 70
                     pref.setStateSend(STATE_SEND_PHOTO_LIST)
                     stateSend()
                 }
-                REQUEST_SERVER_ERROR_SEVE -> {
+                REQUEST_SERVER_ERROR_SAVE -> {
                     serverErrorSave()
                 }
                 REQUEST_SERVER_ERROR_TOKEN -> {
@@ -124,18 +123,19 @@ class FinishViewModel(val app: Application) : AndroidViewModel(app) {
     }
 
     private fun toServerPhotoList() {
+        textInfoSendRequest.value = app.getString(R.string.send_photo)
+        progressBarRequest.value = 80
         repository.requestToServerPhotoList(app) {
-            progressBarRequest.value = 0
             when (it) {
                 REQUEST_SERVER_IS_SUCCESSFUL -> {
                     textInfoSendRequest.value =
-                        app.getString(R.string.success_send_server_phote_list)
+                        app.getString(R.string.success_send_server_photo_list)
                     progressBarRequest.value = 100
                     pref.setStateSend(STATE_SEND_USER_LIST)
                     visibilityBtnSend.value = false
                     newStart.value = true
                 }
-                REQUEST_SERVER_ERROR_SEVE -> {
+                REQUEST_SERVER_ERROR_SAVE -> {
                     serverErrorSave()
                 }
                 REQUEST_SERVER_ERROR_TOKEN -> {
@@ -149,20 +149,22 @@ class FinishViewModel(val app: Application) : AndroidViewModel(app) {
     }
 
     private fun serverErrorSave() {
-        textInfoSendRequest.value = "error save"
+        textInfoSendRequest.value = app.getString(R.string.error_save)
     }
 
     private fun tokenError() {
-        textInfoSendRequest.value = "error token"
+        textInfoSendRequest.value = app.getString(R.string.error_token)
     }
 
     private fun serverError() {
-        textInfoSendRequest.value = "server error "
+        visibilityBtnSend.value = true
+        textInfoSendRequest.value = app.getString(R.string.internet_connection)
     }
 
     private fun stateSend() {
         if (IronUtils.isNetworkConnected(app)) {
-            visibilityBtnSend.value = true
+            visibilityBtnSend.value = false
+            visibilityInfoView.value = true
             when (pref.getStateSend()) {
                 STATE_SEND_USER_LIST -> toServerUserList()
                 STATE_SEND_POINT_LIST -> toServerPointList()

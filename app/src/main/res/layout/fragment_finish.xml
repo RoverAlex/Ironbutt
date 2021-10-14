@@ -100,6 +100,7 @@
 
         <TextView
             android:id="@+id/textView"
+            style="@style/Item_list_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -107,7 +108,7 @@
             android:text="@={viewModelFinish.textInfoSendRequest}"
             android:textSize="24sp"
             android:hint="@string/load_track"
-            app:visibleView="@{viewModelFinish.visibilityBtnSend}"/>
+            app:visibleView="@{viewModelFinish.visibilityInfoView}"/>
 
         <ProgressBar
             android:id="@+id/progress_bar"
@@ -119,7 +120,7 @@
             android:progress="@{viewModelFinish.progressBarRequest}"
             android:max="100"
             tools:progress="40"
-            app:visibleView="@{viewModelFinish.visibilityBtnSend}" />
+            app:visibleView="@{viewModelFinish.visibilityInfoView}" />
         <Button
             style="@style/Item_list_user"
             android:layout_width="match_parent"
@@ -129,18 +130,9 @@
             android:textSize="25sp"
             android:textStyle="bold"
             android:onClick="@{()->viewModelFinish.onClickSendToServer()}"
-            app:hideView="@{viewModelFinish.visibilityBtnSend}"/>
-
-        <Button
-            style="@style/Item_list_user"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="false"
-            android:text="@string/cancel"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:onClick="@{()->viewModelFinish.onClickCancel()}"
             app:visibleView="@{viewModelFinish.visibilityBtnSend}"/>
+
+
 
     </LinearLayout>
 

@@ -13,9 +13,9 @@ import androidx.navigation.fragment.findNavController
 import com.budiyev.android.codescanner.CodeScanner
 import com.budiyev.android.codescanner.CodeScannerView
 import com.budiyev.android.codescanner.DecodeCallback
-import com.denisovdw.ironbutt.database.room.UserList
-import com.denisovdw.ironbutt.utils.IronUtils
-import com.denisovdw.ironbutt.utils.myLog
+import com.dw.ironButt.database.room.UserList
+import com.dw.ironButt.utils.IronUtils
+import com.dw.ironButt.utils.myLog
 import com.dw.ironButt.R
 import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
@@ -87,7 +87,7 @@ class QrFragment : Fragment() {
                 if (barcodes.size > 0) {
                     for (barcode in barcodes) {
                         val rawValue = barcode.rawValue
-                        checkAndSave(rawValue)
+                        checkAndSave(rawValue!!)
                     }
                 }else
                     errorScan()

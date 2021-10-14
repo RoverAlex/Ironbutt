@@ -5,7 +5,7 @@ import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
-import com.denisovdw.ironbutt.utils.myLog
+import com.dw.ironButt.utils.myLog
 import com.dw.ironButt.R
 
 

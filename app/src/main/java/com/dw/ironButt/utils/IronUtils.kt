@@ -1,4 +1,4 @@
-package com.denisovdw.ironbutt.utils
+package com.dw.ironButt.utils
 
 import android.Manifest
 import android.content.Context
@@ -6,7 +6,7 @@ import android.location.Location
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.widget.Toast
-import com.denisovdw.ironbutt.database.room.PointLocation
+import com.dw.ironButt.database.room.PointLocation
 import com.dw.ironButt.App
 import com.dw.ironButt.R
 import java.security.SecureRandom

@@ -7,9 +7,8 @@ import android.util.Log
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.dw.ironButt.R
-import com.dw.ironButt.ui.finish.FinishViewModel
 
-class DialogFinishToStart() : DialogFragment() {
+class DialogFinishToStart: DialogFragment() {
 
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {

@@ -4,7 +4,6 @@ import android.content.Context
 import android.location.LocationManager
 import android.os.Build
 import android.os.Bundle
-import android.widget.Toolbar
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope

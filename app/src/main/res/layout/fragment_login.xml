@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:background="@color/primary_green"
             android:gravity="center"
-            android:text="@string/betta_test"
+            android:text="@string/connect_server"
              />
 
             <ImageView
@@ -112,7 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:gravity="center"
-            android:hint="@string/betta_test"
+            android:hint="@string/connect_server"
             android:text="@{loginViewModelBind.infoToken}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

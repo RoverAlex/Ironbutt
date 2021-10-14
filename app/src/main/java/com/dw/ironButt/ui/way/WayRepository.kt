@@ -2,11 +2,11 @@ package com.dw.ironButt.ui.way
 
 
 import androidx.lifecycle.LiveData
-import com.denisovdw.ironbutt.database.room.PointLocation
-import com.denisovdw.ironbutt.database.room.PointLocationDao
-import com.denisovdw.ironbutt.database.room.UserDatabaseDao
-import com.denisovdw.ironbutt.database.room.UserList
-import com.denisovdw.ironbutt.utils.myLog
+import com.dw.ironButt.database.room.PointLocation
+import com.dw.ironButt.database.room.PointLocationDao
+import com.dw.ironButt.database.room.UserDatabaseDao
+import com.dw.ironButt.database.room.UserList
+import com.dw.ironButt.utils.myLog
 import kotlinx.coroutines.*
 
 class WayRepository(
@@ -54,12 +54,12 @@ class WayRepository(
                 }
             }
         } catch (e: Exception) {
-            myLog("deleteBase MapInteraptor $e")
+            myLog("deleteBase  $e")
         }
 
     }
 
-    fun updateStartUser(newUserListData:UserList,resultUpdate :(Int)->Unit){
+    fun updateStartUser(newUserListData: UserList, resultUpdate :(Int)->Unit){
         mUiScope.launch {
             withContext(Dispatchers.IO) {
                 resultUpdate (userDatabaseDao.update(newUserListData))

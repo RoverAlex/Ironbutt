@@ -9,7 +9,7 @@ import androidx.fragment.app.DialogFragment
 import com.dw.ironButt.R
 
 
-class GpsDialog: DialogFragment() {
+class GpsDialog : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
@@ -17,15 +17,12 @@ class GpsDialog: DialogFragment() {
             builder.setTitle("ironbutt")
                 .setMessage("Чтобы продолжить, включите на устройстве геолокацию ")
                 .setIcon(R.drawable.logo)
-                .setPositiveButton("ОК") {
-
-                        dialog, id ->  packageNotFoundGPS()
-                }
-
+                .setPositiveButton("ОК") { _, _ -> packageNotFoundGPS() }
             builder.create()
         } ?: throw IllegalStateException("Activity cannot be null")
     }
-    fun packageNotFoundGPS() {
+
+    private fun packageNotFoundGPS() {
         val gpsOptionsIntent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
         startActivity(gpsOptionsIntent)
     }

@@ -5,18 +5,19 @@ import android.content.res.Resources
 import android.location.Location
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.denisovdw.ironbutt.database.api.ApiService
-import com.denisovdw.ironbutt.database.room.PointLocationDao
-import com.denisovdw.ironbutt.database.room.UserDatabase
-import com.denisovdw.ironbutt.database.room.UserDatabaseDao
-import com.denisovdw.ironbutt.presrntation.view.login.web.LoginRepository
+import com.dw.ironButt.database.api.ApiService
+import com.dw.ironButt.database.room.PointLocationDao
+import com.dw.ironButt.database.room.UserDatabase
+import com.dw.ironButt.database.room.UserDatabaseDao
+import com.dw.ironButt.ui.login.LoginRepository
 import com.dw.ironButt.utils.LocationRUpdate
-import com.denisovdw.ironbutt.utils.IronButtConstant.Companion.SERVER_URL
-import com.denisovdw.ironbutt.utils.SharedPrefsManager
-import com.denisovdw.ironbutt.utils.myLog
+
+import com.dw.ironButt.utils.SharedPrefsManager
+import com.dw.ironButt.utils.myLog
 import com.dw.ironButt.ui.finish.FinishRepository
 import com.dw.ironButt.ui.way.WayRepository
 import com.dw.ironButt.ui.settings.SettingsRepository
+import com.dw.ironButt.utils.TokenConstant.Companion.SERVER_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -90,11 +91,7 @@ class App : Application() {
     }
 
     private fun initUserInteract() {
-        settingsRepository = SettingsRepository(
-            userDatabaseDao,
-            pointDatabaseDao,
-            sharedPrefsManager
-        )
+        settingsRepository = SettingsRepository(userDatabaseDao)
     }
 
 

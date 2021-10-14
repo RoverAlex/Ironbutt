@@ -10,11 +10,11 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.denisovdw.ironbutt.utils.IronButtConstant.Companion.TAG_DIALOG_INFO
-import com.denisovdw.ironbutt.utils.IronUtils
-import com.denisovdw.ironbutt.utils.SharedPrefsManager.Companion.STATE_PRESENTER_LOGIN
-import com.denisovdw.ironbutt.utils.SharedPrefsManager.Companion.STATE_PRESENTER_SETTINGS
-import com.denisovdw.ironbutt.utils.SharedPrefsManager.Companion.STATE_PRESENTER_START
+import com.dw.ironButt.utils.IronButtConstant.Companion.TAG_DIALOG_INFO
+import com.dw.ironButt.utils.IronUtils
+import com.dw.ironButt.utils.SharedPrefsManager.Companion.STATE_PRESENTER_LOGIN
+import com.dw.ironButt.utils.SharedPrefsManager.Companion.STATE_PRESENTER_SETTINGS
+import com.dw.ironButt.utils.SharedPrefsManager.Companion.STATE_PRESENTER_START
 import com.dw.ironButt.App
 import com.dw.ironButt.R
 import com.dw.ironButt.database.file.FileHelper

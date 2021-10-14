@@ -3,7 +3,7 @@ package com.dw.ironButt.ui.settings
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.denisovdw.ironbutt.database.room.UserList
+import com.dw.ironButt.database.room.UserList
 import com.dw.ironButt.App
 import com.dw.ironButt.R
 import kotlinx.coroutines.*
@@ -11,7 +11,7 @@ import kotlinx.coroutines.*
 class SettingsViewModel : ViewModel() {
 
     private val interact = App.settingsRepository
-    val pref = App.sharedPrefsManager
+    private val pref = App.sharedPrefsManager
     private val mJob = Job()
     private val mUiScope = CoroutineScope(Dispatchers.Main + mJob)
     private val _successSaveUserList= MutableLiveData(false)
@@ -58,12 +58,12 @@ class SettingsViewModel : ViewModel() {
         }
         brandMoto.observeForever {
             if (it.isNotEmpty()) {
-                userList.marka = it
+                userList.brand = it
                 pref.setBrandMoto(it)
             } else flag = false
         }
         if (flag) {
-            saveRoom() {
+            saveRoom {
                 if (it)
                     _successSaveUserList.value = true
             }

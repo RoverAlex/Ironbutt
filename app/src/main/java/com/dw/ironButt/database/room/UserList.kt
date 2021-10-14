@@ -1,4 +1,4 @@
-package com.denisovdw.ironbutt.database.room
+package com.dw.ironButt.database.room
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -30,8 +30,8 @@ class UserList {
     @ColumnInfo(name = "power")
     var power: Boolean = true
 
-    @ColumnInfo(name = "marka")
-    var marka: String = ""
+    @ColumnInfo(name = "brand")
+    var brand: String = ""
 
     @ColumnInfo(name = "countryStart")
     var countryCity: String = ""

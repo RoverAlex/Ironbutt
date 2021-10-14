@@ -6,7 +6,6 @@ import android.content.pm.PackageManager
 import android.location.Location
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.MutableLiveData
-import com.denisovdw.ironbutt.utils.myLog
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
@@ -53,10 +52,7 @@ class LocationRUpdate(
                     return
                 }
                 fusedLocationProviderClient.requestLocationUpdates(
-                    createLocationRequest(),
-                    locationCallback,
-                    null
-                )
+                    createLocationRequest(),locationCallback,null )
                 //myLog("Start Location $LOCATION_REFRESH_TIME  sek ")
 
 

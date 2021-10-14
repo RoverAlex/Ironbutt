@@ -1,7 +1,6 @@
-package com.denisovdw.ironbutt.utils
+package com.dw.ironButt.utils
 
 import android.util.Log
-
 
 var MY_LOG_LINE_NUM: Int = 1
 fun myLog(msg: String) {

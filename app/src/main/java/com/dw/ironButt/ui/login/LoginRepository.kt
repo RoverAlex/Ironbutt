@@ -1,14 +1,14 @@
-package com.denisovdw.ironbutt.presrntation.view.login.web
+package com.dw.ironButt.ui.login
 
 
-import com.denisovdw.ironbutt.CheckTokenJson
-import com.denisovdw.ironbutt.database.api.ApiService
-import com.denisovdw.ironbutt.database.room.UserDatabaseDao
-import com.denisovdw.ironbutt.database.room.UserList
-import com.denisovdw.ironbutt.utils.IronButtConstant.Companion.TOKEN
-import com.denisovdw.ironbutt.utils.SharedPrefsManager
-import com.denisovdw.ironbutt.utils.SharedPrefsManager.Companion.STATE_PRESENTER_SETTINGS
-import com.denisovdw.ironbutt.utils.myLog
+import com.dw.ironButt.database.api.CheckTokenJson
+import com.dw.ironButt.database.api.ApiService
+import com.dw.ironButt.database.room.UserDatabaseDao
+import com.dw.ironButt.database.room.UserList
+import com.dw.ironButt.utils.SharedPrefsManager
+import com.dw.ironButt.utils.SharedPrefsManager.Companion.STATE_PRESENTER_SETTINGS
+import com.dw.ironButt.utils.myLog
+import com.dw.ironButt.utils.TokenConstant.Companion.TOKEN
 import kotlinx.coroutines.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -35,7 +35,9 @@ class LoginRepository(
             }
 
             override fun onFailure(call: Call<CheckTokenJson>, t: Throwable) {
-                myLog("onFailure " + call.toString())
+                val error = CheckTokenJson()
+                result(error)
+                myLog("onFailure $call")
             }
 
         })
@@ -46,7 +48,6 @@ class LoginRepository(
 
         mUiScope.launch {
             withContext(Dispatchers.IO) {
-                pref.setAuthorLk(userList.authorLk)
                 pref.setUserName(userList.fullName)
                 pref.setStateApplication(STATE_PRESENTER_SETTINGS)
 

@@ -1,11 +1,10 @@
-package com.denisovdw.ironbutt.database.room
+package com.dw.ironButt.database.room
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-
 
 @Dao
 interface UserDatabaseDao {
@@ -26,7 +25,7 @@ interface UserDatabaseDao {
     fun getCount():Int
 
     @Query("SELECT * FROM table_user WHERE id = 0")
-    fun getUserList ():UserList
+    fun getUserList (): UserList
 
 }
 @Dao
