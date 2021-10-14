@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.way.root.RootFragment"
+    tools:layout="@layout/fragment_start">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.dw.ironButt.ui.way.root.RootViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/map_start"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ProgressBar
+                    android:id="@+id/location_progressBar_start"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:indeterminateTint="@color/primary_red"
+                    app:hideLoading="@{viewModel.hideProgressBar}" />
+            </FrameLayout>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/travel_time" />
+
+                <TextView
+                    style="@style/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/odometer"
+                    android:textSize="20sp" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@{viewModel.totalTime}"
+                    android:textSize="20sp"
+                    tools:text="00:00" />
+
+
+                <TextView
+                    style="@style/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@{viewModel.totalDistance}"
+                    android:textSize="20sp"
+                    tools:text="0000" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/ed_odometer_start"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="@string/odometer_start"
+                    android:hint="@string/odometer_start"
+                    android:inputType="number"
+                    android:text="@={viewModel.odometer}"
+                    app:visibleView="@{viewModel.visibilityEditText}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Button
+                style="@style/view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="@{()->viewModel.clickNewPoint()}"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="@string/save_point"
+                app:visibleView="@{viewModel.visibilityBtnPoint}" />
+
+            <TextView
+                android:id="@+id/text_info_root"
+                style="@style/view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="@string/you_new_point"
+                android:text="@{viewModel.textInfo}"
+                app:visibleView="@{viewModel.visibilityTextInfo}" />
+
+            <Button
+                style="@style/view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="@{()->viewModel.clickFinishBtn()}"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="@string/btn_finish"
+                app:visibleView="@{viewModel.visibilityBtnFinish}" />
+        </LinearLayout>
+    </ScrollView>
+</layout>
+

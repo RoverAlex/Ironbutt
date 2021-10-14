@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="loginViewModelBind"
+            type="com.dw.ironButt.ui.login.LoginViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/btn_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:contentDescription="@string/logo"
+            android:src="@drawable/universal"
+            app:btnIsClickable="@{loginViewModelBind.flagClickableAndHide}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.100000024" />
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="211dp"
+            android:layout_height="177dp"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/primary_red"
+            app:hideLoading="@{loginViewModelBind.flagClickableAndHide}"
+            app:layout_constraintBottom_toTopOf="@+id/info_token"
+            app:layout_constraintEnd_toEndOf="@+id/btn_login"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="@+id/btn_login"
+            app:layout_constraintTop_toTopOf="@+id/btn_login"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <LinearLayout
+            android:id="@+id/linear_btn_qr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@color/primary_green"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_login"
+            app:visibleView="@{loginViewModelBind.flagClickableAndHide}">
+
+            <TextView
+                android:id="@+id/btn_qr"
+                style="@style/textView_betta_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/primary_green"
+                android:gravity="center"
+                android:text="@string/btn_qr"       />
+
+            <ImageView
+                android:id="@+id/info_qr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/ic_info" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linear_btn_betta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@color/primary_green"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linear_btn_qr"
+            app:visibleView="@{loginViewModelBind.flagClickableAndHide}">
+
+        <TextView
+            android:id="@+id/beta_version"
+            style="@style/textView_betta_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/primary_green"
+            android:gravity="center"
+            android:text="@string/betta_test"
+             />
+
+            <ImageView
+                android:id="@+id/info_betta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/ic_info" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/info_token"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:hint="@string/betta_test"
+            android:text="@{loginViewModelBind.infoToken}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linear_btn_betta" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

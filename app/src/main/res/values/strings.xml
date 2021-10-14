@@ -1,0 +1,98 @@
+<resources>
+    <string name="app_name">IronButt</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="action_sign_in">Войти</string>
+    <string name="prompt_login">Логин</string>
+    <string name="prompt_password">Пароль</string>
+    <string name="network_error">Сетевая ошибка</string>
+    <string name="Invalid_username_or_password">Неверное имя или пароль</string>
+    <string name="not_all_fields_are_filled">Заполнены не все данные</string>
+    <string name="channel">Iron Butt channel</string>
+    <string name="channel_to">Dw_Butt_channel_to</string>
+
+    <string name="dialog_description_finish">Нажав на кнопку "ДА" Вы закроете свой маршрут</string>
+    <string name="dialog_title_confirm">Подтвердите</string>
+    <string name="dialog_text_start_over">Начать с начало?</string>
+    <string name="dialog_action_yes">Да</string>
+    <string name="dialog_action_no">Нет</string>
+    <string name="dialog_action_ok">OK</string>
+    <string name="btn_start">Старт</string>
+    <string name="btn_finish">Финиш</string>
+    <string name="start">Start</string>
+    <string name="point">Point</string>
+    <string name="finish">Finish</string>
+    <string name="cancel">Отмена</string>
+    <string name="send">Отправить</string>
+    <string name="odometer_finish">Одометр финиш</string>
+    <string name="country">Страна</string>
+    <string name="address">Адрес</string>
+    <string name="firstName_lastName">Водитель (пассажир) ФИО</string>
+    <string name="odometer_start">Показания одометра</string>
+    <string name="driver">Водитель</string>
+    <string name="passenger">Пассажир</string>
+    <string name="motorcycle">Мотоцикл</string>
+    <string name="scooter">Скутер</string>
+    <string name="_300">300 +</string>
+    <string name="_300_">300 -</string>
+    <string name="image_odometer">Сделав фотографию одометра, отчет начнется через 5 минут</string>
+    <string name="authorization">авторизация</string>
+    <string name="motorcycle_brand">Марка и модель ТС</string>
+    <string name="country_and_city_of_residence">Страна и город проживания</string>
+    <string name="photo_odometer">Сфотографировать одометр</string>
+    <string name="error_save_base_user">Ошибка сохронение базы User</string>
+    <string name="error_save_base_point">Ошибка сохронение базы Point</string>
+    <string name="loading_data">Загрузка данных</string>
+    <string name="Save">Сохранить</string>
+    <string name="registration_number">Рег.номер ТС</string>
+    <string name="bikerName">Байкерское Имя (поле не обязательное)</string>
+    <string name="info_text_comment">Все поля заявки, кроме марки мотоцикла, заполняются на русском языке без кавычек</string>
+    <string name="time_finish">Время финиш</string>
+    <string name="total_time">Общее время</string>
+    <string name="description_qr">Отсканируйте или загрузите скриншот QR код с сайта в разделе Личный кабинет->Заявки->Заявка через мобильное приложение</string>
+    <string name="Cancellation">Отмена</string>
+    <string name="photos_taken">\Сделано  \ </string>
+    <string name="out_of">\ из 6 \</string>
+    <string name="start_information">Заполните показание одометра, Нажмите на кнопку Старт, Сделайте фотографию чека с заправки на фоне одометра</string>
+    <string name="receipt_information">На протяжение всего маршрута Вам необходимо делать по одной фотографи чеков с каждой заправки на фоне одомтра</string>
+    <string name="low_internet_speed">Низкая скорость интернета. Время ожидания подтверждения SSL истекло</string>
+    <string name="sending_list">Отправка заявки</string>
+    <string name="sending_points">Отправка трэка</string>
+    <string name="track_sent">Трэка отправлен</string>
+    <string name="token_error">Token error</string>
+    <string name="server_write_error">Ошибка записи сервера, поробуйте через несколько минут</string>
+    <string name="application_sent">Заявки отправлена</string>
+    <string name="sending_photos">Отправка фотографий</string>
+    <string name="no_Internet">Нет  интернета</string>
+    <string name="scan_file">Сканировать \n файл</string>
+
+
+    <string name="start_new_login">Выйти</string>
+    <string name="wrong_format">Не верный формат</string>
+    <string name="betta_test">Тестирования</string>
+    <string name="btn_qr">Войти по qr коду</string>
+    <string name="press_to_exit">Для выхода нажмите еще раз</string>
+
+    <string name="save_point">добавить точку</string>
+    <string name="save_photo_point_finish">Сделать фото \n и \n финишировать</string>
+    <string name="you_new_point">Новую точку можно сохранить\n через: </string>
+    <string name="satellites">Получение данных со спутников</string>
+    <string name="load_data">Загрузка данных</string>
+    <string name="travel_time">время</string>
+    <string name="odometer">одометр</string>
+    <string name="are_you_here">Вы здесь</string>
+    <string name="settings">Настройки</string>
+    <string name="start_over">Начать с начало</string>
+    <string name="start_total_time">- 00:05 мин</string>
+    <string name="info">Info</string>
+    <string name="logo">logo</string>
+    <string name="load_track">Загрузка трэка</string>
+    <string name="images_load_photo">images load photo</string>
+    <string name="success_send_server_user_list">Данные о пользователе отправлены</string>
+    <string name="success_send_server_point_list">Данные лист локации отправлены</string>
+    <string name="success_send_server_phote_list">Все фотографии отправлены</string>
+    <string name="swipe_to_finish">SWIPE TO FINISH</string>
+    <string name="info_aplication">Это программа предназначена для упрощения подачи заявки на номинации IRONBUTT</string>
+
+
+</resources>

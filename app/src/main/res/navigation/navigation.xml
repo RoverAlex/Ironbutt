@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nivigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.dw.ironButt.ui.login.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_qrFragment"
+            app:destination="@id/qrFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/qrFragment"
+        android:name="com.dw.ironButt.ui.login.QrFragment"
+        android:label="fragment_qr"
+        tools:layout="@layout/fragment_qr" />
+    <fragment
+        android:id="@+id/finishFragment"
+        android:name="com.dw.ironButt.ui.finish.FinishFragment"
+        android:label="fragment_finish"
+        tools:layout="@layout/fragment_finish" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.dw.ironButt.ui.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/rootFragment"
+        android:name="com.dw.ironButt.ui.way.root.RootFragment"
+        android:label="fragment_root"
+        tools:layout="@layout/fragment_root" />
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.dw.ironButt.ui.way.start.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+</navigation>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.way.start.StartFragment"
+    tools:layout="@layout/fragment_start">
+
+    <data>
+
+        <variable
+            name="viewModelStart"
+            type="com.dw.ironButt.ui.way.start.StartViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/map_start"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ProgressBar
+                android:id="@+id/location_progressBar_start"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/primary_red"
+                app:hideLoading="@{viewModelStart.hideProgressBar}" />
+        </FrameLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/travel_time"
+                android:textSize="20sp"
+                tools:text="Время в пути" />
+
+
+            <TextView
+                style="@style/view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20sp" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@{viewModelStart.totalTime}"
+                android:textSize="20sp"
+                tools:text="00:00" />
+
+
+            <TextView
+                style="@style/view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/ed_odometer_start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/odometer_start"
+                android:inputType="number"
+                android:text="@={viewModelStart.odometer}"
+                app:editTextError="@{viewModelStart.odometer}"
+                app:visibleView="@{viewModelStart.visibilityEditText}"
+                android:autofillHints="@string/odometer_start" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            style="@style/view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:backgroundTintMode="src_in"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="@string/btn_start"
+            android:onClick="@{()->viewModelStart.clickStart()}"
+            app:visibleView="@{viewModelStart.visibilityBtnStart}" />
+    </LinearLayout>
+</layout>
+
