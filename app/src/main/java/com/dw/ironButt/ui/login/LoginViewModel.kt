@@ -7,9 +7,16 @@ import androidx.lifecycle.MutableLiveData
 import com.dw.ironButt.database.api.CheckTokenJson
 import com.dw.ironButt.database.room.UserList
 import com.dw.ironButt.App
+import io.reactivex.disposables.CompositeDisposable
 
 
 class LoginViewModel(app: Application) : AndroidViewModel(app) {
+    private val compositeDisposable = CompositeDisposable()
+
+    override fun onCleared() {
+        compositeDisposable.dispose()
+        super.onCleared()
+    }
 
     private val loginInteract = App.loginRepository
     private val _errorLiveData = MutableLiveData<String>()
@@ -17,7 +24,6 @@ class LoginViewModel(app: Application) : AndroidViewModel(app) {
 
     private val _flagClickable = MutableLiveData(false)
     val flagClickableAndHide: LiveData<Boolean?> get() = _flagClickable
-    var infoToken = MutableLiveData<String>()
 
     fun getAuthenticated(flag: Boolean) {
         if (flag) {

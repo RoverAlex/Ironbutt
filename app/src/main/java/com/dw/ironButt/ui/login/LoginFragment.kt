@@ -73,41 +73,19 @@ class LoginFragment : Fragment(), IOnBackPressed {
         binding.loginViewModelBind = viewModel
         binding.lifecycleOwner = this.viewLifecycleOwner
 
-
         viewModel.getError().observe(viewLifecycleOwner, { error ->
             IronUtils.showToast(requireContext(), error!!)
 
         })
-
         requestMultiplePermissionLauncher.launch(IronUtils.arrayPermissions)
-
         betaVersion()
         qrFragment()
         infoQr()
         infoBetta()
-        checkToken()
-
-
+        appState()
         return binding.root
     }
 
-    private fun checkToken() {
-        viewModel.chekToken { response ->
-            if (response.token == "1") {
-                viewModel.infoToken.value = response.message
-                viewModel.flagClickableAndHide.observe(viewLifecycleOwner, { res ->
-                    if (res != true) {
-                        appState()
-                    }
-                })
-            }else{
-                checkToken()
-                viewModel.infoToken.value = getString(R.string.internet_connection)
-            }
-
-
-        }
-    }
 
     private fun appState() {
         //pref.setStateApplication(STATE_PRESENTER_START)

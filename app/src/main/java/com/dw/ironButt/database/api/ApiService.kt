@@ -42,7 +42,6 @@ interface ApiService {
     ):Call<ServerResponse>
 
     @Multipart
-    //@POST(SET_IMAGES)
     @POST(SET_REQUEST)
     fun uploadImages(
         @Part("token") token:String,

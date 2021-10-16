@@ -9,15 +9,14 @@ import com.dw.ironButt.database.api.ApiService
 import com.dw.ironButt.database.room.PointLocationDao
 import com.dw.ironButt.database.room.UserDatabase
 import com.dw.ironButt.database.room.UserDatabaseDao
-import com.dw.ironButt.ui.login.LoginRepository
-import com.dw.ironButt.utils.LocationRUpdate
-
-import com.dw.ironButt.utils.SharedPrefsManager
-import com.dw.ironButt.utils.myLog
 import com.dw.ironButt.ui.finish.FinishRepository
-import com.dw.ironButt.ui.way.WayRepository
+import com.dw.ironButt.ui.login.LoginRepository
 import com.dw.ironButt.ui.settings.SettingsRepository
+import com.dw.ironButt.ui.way.WayRepository
+import com.dw.ironButt.utils.LocationRUpdate
+import com.dw.ironButt.utils.SharedPrefsManager
 import com.dw.ironButt.utils.TokenConstant.Companion.SERVER_URL
+import com.dw.ironButt.utils.myLog
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -25,9 +24,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class App : Application() {
 
-
     companion object {
-
         lateinit var loginRepository: LoginRepository
         lateinit var settingsRepository: SettingsRepository
         lateinit var finishRepository: FinishRepository
@@ -83,7 +80,6 @@ class App : Application() {
 
 
     private fun initLocation() {
-
         locationRUpdate.locationNow.observeForever {
             //myLog("App locationNow ")
             _currentLocation.value = it

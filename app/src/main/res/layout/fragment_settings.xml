@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.settings.SettingsFragment">
     <data>
@@ -13,8 +14,6 @@
     </data>
 
     <ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -113,11 +112,12 @@
                     android:id="@+id/ed_country_and_city_of_residence"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/country_and_city_of_residence"
                     android:digits="йцукенгшщзхъфывапролджэячсмитьбю ЦУКЕНГШЩЗХФВАПРОЛДЖЭЯЧСМИТБЮ 0123456789"
+                    android:hint="@string/country_and_city_of_residence"
                     android:inputType="text"
                     android:text="@={viewModelStart.countryCity}"
-                    app:editTextError="@{viewModelStart.countryCity}"/>
+                    app:editTextError="@{viewModelStart.countryCity}"
+                    tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -134,7 +134,8 @@
                     android:hint="@string/firstName_lastName"
                     android:inputType="text"
                     android:text="@={viewModelStart.nameUser}"
-                    app:editTextError="@{viewModelStart.nameUser}" />
+                    app:editTextError="@{viewModelStart.nameUser}"
+                    tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -146,21 +147,20 @@
                     android:id="@+id/ed_brand_moto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM 0123456789"
                     android:hint="@string/motorcycle_brand"
                     android:inputType="text"
-                    android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM 0123456789"
                     android:text="@={viewModelStart.brandMoto}"
-                    app:editTextError="@{viewModelStart.brandMoto}"/>
+                    app:editTextError="@{viewModelStart.brandMoto}"
+                    tools:ignore="SpeakableTextPresentCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/btn_start"
-                style="@style/ButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:backgroundTint="@color/primary_red"
-                android:background="@color/primary_red"
+                android:padding="15dp"
+                style="@style/Item_list_user"
                 android:text="@string/Save"
                 android:onClick="@{()->viewModelStart.onClickSave()}"/>
 

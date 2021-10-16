@@ -38,12 +38,10 @@
             android:layout_gravity="center"
             android:indeterminateTint="@color/primary_red"
             app:hideLoading="@{loginViewModelBind.flagClickableAndHide}"
-            app:layout_constraintBottom_toTopOf="@+id/info_token"
             app:layout_constraintEnd_toEndOf="@+id/btn_login"
             app:layout_constraintHorizontal_bias="0.505"
             app:layout_constraintStart_toStartOf="@+id/btn_login"
-            app:layout_constraintTop_toTopOf="@+id/btn_login"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="@+id/btn_login" />
 
         <LinearLayout
             android:id="@+id/linear_btn_qr"
@@ -106,17 +104,6 @@
                 android:layout_marginRight="10dp"
                 android:src="@drawable/ic_info" />
         </LinearLayout>
-        <TextView
-            android:id="@+id/info_token"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:gravity="center"
-            android:hint="@string/connect_server"
-            android:text="@{loginViewModelBind.infoToken}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linear_btn_betta" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
